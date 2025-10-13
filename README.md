@@ -1,8 +1,1 @@
-verilog code for and gate 
-module and_gate (
-input wire a,
-input wire b,
-output wire y
-);
-assign y = a & b;
-endmodule
+this is only for VLSI purpose program in detail 
