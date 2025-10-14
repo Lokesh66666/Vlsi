@@ -1,0 +1,26 @@
+module testbench;
+reg a, b;
+wire y;
+// Instantiate the OR gate
+or_gate u1 (
+.a(a),
+.b(b),
+.y(y)
+);
+// Specify the VCD file and signals to dump
+initial begin
+$dumpfile("waveform.vcd"); // VCD file name
+$dumpvars(0, testbench); // Dump all signals in the testbench scope
+// Stimulus generation
+a = 0;
+b = 0;
+#10 a = 0; b = 1;
+#10 a = 1; b = 0;
+#10 a = 1; b = 1;
+$finish;
+end
+// Display results
+always @(posedge y) begin
+$display("a = %b, b = %b, y = %b", a, b, y);
+end
+endmodule
